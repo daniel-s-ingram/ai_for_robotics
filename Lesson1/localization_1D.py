@@ -43,11 +43,11 @@ def move(p, U):
         q.append(s)
     return q
 
+plt.ion()
 fig, (prob_ax, world_ax) = plt.subplots(
     nrows=2,
     ncols=1,
     gridspec_kw={'height_ratios' : [10, 1]})
-plt.ion()
 world_ax.imshow([world], cmap=cmap, norm=norm, interpolation=None)
 world_ax.axis("off")
 for i in range(n_cells):
