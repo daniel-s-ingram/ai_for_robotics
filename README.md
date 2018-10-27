@@ -1,4 +1,4 @@
-#Artificial Intelligence for Robots by Sebastian Thrun
+# Artificial Intelligence for Robots by Sebastian Thrun
 
 1D Localization with Landmarks
 ==============================
