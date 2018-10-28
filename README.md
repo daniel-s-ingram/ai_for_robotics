@@ -6,3 +6,6 @@ Using only dead reckoning, the robot's position quickly becomes uncertain even w
 
 The only way to overcome this uncertainty is to use the known positions of landmarks e.g. red blocks in a sea of green to get a better estimate of the robot's position. Landmarks even help to localize when we start with _no_ idea of where we are. 
 ![](https://github.com/daniel-s-ingram/ai_for_robots/blob/master/Lesson1/sense_and_move.gif)
+
+## 2D Localization
+![](https://github.com/daniel-s-ingram/ai_for_robots/blob/master/Lesson1/localization_2d.gif)
