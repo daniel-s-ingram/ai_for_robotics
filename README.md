@@ -8,9 +8,12 @@ Using only dead reckoning, the robot's position quickly becomes uncertain even w
 The only way to overcome this uncertainty is to use the known positions of landmarks to get a better estimate of the robot's position. Landmarks even help to localize when we start with _no_ idea of where we are. 
 ![](https://github.com/daniel-s-ingram/ai_for_robots/blob/master/Histogram%20Localization/sense_and_move.gif)
 
-### 2D Histogram Localization
+### Histogram Localization in a Cyclic 2D World
 ![](https://github.com/daniel-s-ingram/ai_for_robots/blob/master/Histogram%20Localization/localization_2d.gif)
 
 ## Lesson 2
 ### 1D Kalman Filter
 ![](https://github.com/daniel-s-ingram/ai_for_robots/blob/master/Kalman%20Filter/kalman_1d.gif)
+
+### 2D Kalman Filter
+![](https://github.com/daniel-s-ingram/ai_for_robots/blob/master/Kalman%20Filter/kalman_2d.gif)
