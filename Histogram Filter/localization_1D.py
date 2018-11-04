@@ -17,12 +17,12 @@ p_overshoot = 0.1
 p = [1/n_cells for _ in range(n_cells)]
 
 #Or we know where we start
-p = [0 for _ in range(n_cells)]
-p[0] = 1
+#p = [0 for _ in range(n_cells)]
+#p[0] = 1
 
 world = [1 if random.random() > 0.8 else 0 for _ in range(n_cells)]
 
-colors = ["green", "red"]
+colors = ["white", "black"]
 levels = [0, 1, 2]
 cmap, norm = from_levels_and_colors(levels, colors)
 
@@ -49,17 +49,19 @@ fig, (prob_ax, world_ax) = plt.subplots(
     ncols=1,
     gridspec_kw={'height_ratios' : [10, 1]},
     sharex=True)
-world_ax.imshow([world], cmap=cmap, norm=norm, interpolation=None)
+world_ax.imshow([world, world], cmap=cmap, norm=norm, interpolation=None)
 world_ax.get_yaxis().set_ticks([])
 x = [i for i in range(n_cells)]
 rects = prob_ax.bar(x, p)
+line, = world_ax.plot(0, 1, 'r.')
 def update(i):
     global p
     p = sense(p, world[i])
     p = move(p, 1)
     for rect, h in zip(rects, p):
         rect.set_height(h)
-    return rects,
+    line.set_xdata((i+1)%n_cells)
+    return rects, line,
 
 def init():
     prob_ax.set_xlim(0, n_cells-1)
@@ -67,7 +69,7 @@ def init():
     world_ax.set_xlabel("Position")
     prob_ax.set_ylabel("Probability")
     prob_ax.set_title("Histogram Localization With Measurements")
-    return rects,
+    return rects, line,
 
 anim = animation.FuncAnimation(fig, update, n_cells, interval=50, init_func=init)
 plt.show()
