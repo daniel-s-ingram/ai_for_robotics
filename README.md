@@ -17,3 +17,7 @@ The only way to overcome this uncertainty is to use the known positions of landm
 
 ### 2D Kalman Filter
 ![](https://github.com/daniel-s-ingram/ai_for_robots/blob/master/Kalman%20Filter/kalman_2d.gif)
+
+## Lesson 3
+### Particle Filter
+![](https://github.com/daniel-s-ingram/ai_for_robots/blob/master/Particle%20Filter/particle_filter.gif)
