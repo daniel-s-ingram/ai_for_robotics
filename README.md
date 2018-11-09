@@ -21,3 +21,5 @@ The only way to overcome this uncertainty is to use the known positions of landm
 ## Lesson 3
 ### Particle Filter
 ![](https://github.com/daniel-s-ingram/ai_for_robots/blob/master/Particle%20Filter/particle_filter.gif)
+
+![](https://github.com/daniel-s-ingram/ai_for_robots/blob/master/Particle%20Filter/car.gif)
