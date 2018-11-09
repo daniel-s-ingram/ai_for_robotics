@@ -1,4 +1,4 @@
-# Udacity's Artificial Intelligence for Robotics by Sebastian Thrun
+# Artificial Intelligence for Robotics by Sebastian Thrun
 
 ## Lesson 1
 ### Histogram Localization in a Cylic 1D World
