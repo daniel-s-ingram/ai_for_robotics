@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
-N = 1000
+N = 10
 world_size = 100
 landmarks = [[10, 10],
              [90, 90],
@@ -72,6 +72,7 @@ def resample(p, w):
     index = int(N*random.random())
     beta = 0.0
     mw = max(w)
+    print(w)
     for i in range(N):
         beta += 2*mw*random.random()
         while beta > w[index]:
@@ -82,20 +83,20 @@ def resample(p, w):
 
 fig, ax = plt.subplots()
 robot = Robot()
-robot.set_pose(50, 50, 0)
+#robot.set_pose(50, 50, 0)
 particles = [Robot() for _ in range(N)]
 weights = [0 for _ in range(N)]
 robo_dot, = ax.plot(0, 0, 'ro')
 sense_lines = [ax.plot([0, 0], [0, 0], 'k--') for _ in landmarks]
-particle_dots = [ax.plot(0, 0, '.', markersize=1) for _ in range(N)]
+particle_dots = [ax.plot(0, 0, '.') for _ in range(N)]
 def animate(_):
     global particles, weights, robot
     w = []
-    robot = robot.move(0.1, 0.5)
+    robot = robot.move(0.1, 1)
     Z = robot.sense()
     robo_dot.set_data(robot.x, robot.y)
     for i in range(N):
-        p = particles[i].move(0.1, 0.5)
+        p = particles[i].move(0.1, 1)
         particles[i] = p
         weights[i] = p.measurement_prob(Z)
         particle_dots[i][0].set_data(p.x, p.y)
@@ -113,6 +114,6 @@ def init():
         ax.plot(lm[0], lm[1], 'g*')
     return robo_dot, particle_dots, 
 
-anim = animation.FuncAnimation(fig, animate, 250, interval=50, init_func=init)
-#plt.show()
-anim.save("particle_filter.gif", writer="imagemagick")
+anim = animation.FuncAnimation(fig, animate, 250, interval=1000, init_func=init)
+plt.show()
+#anim.save("particle_filter.gif", writer="imagemagick")

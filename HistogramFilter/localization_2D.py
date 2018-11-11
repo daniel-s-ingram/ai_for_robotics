@@ -37,14 +37,14 @@ def move(p, U):
             q[i][j] = p_move*p[(i-U[0])%m][(j-U[1])%n] + p_stay*p[i][j]
     return q
 
-plt.ion()
+#plt.ion()
 fig, ax = plt.subplots()
-grid = ax.imshow(p)
+grid = ax.imshow(p, cmap="GnBu")
 line, = ax.plot([], [], 'r.')
 
 i = m//2
 j = n//2
-while True:
+"""while True:
     U = random.choice(movements)
     p = sense(p, world[i][j])
     p = move(p, U)
@@ -53,9 +53,9 @@ while True:
     ax.cla()
     ax.imshow(p)
     ax.plot([j], [i], 'r.')
-    plt.pause(1e-3)
+    plt.pause(1e-3)"""
 
-"""def animate(_):
+def animate(_):
     global p, i, j
     U = random.choice(movements)
     p = sense(p, world[i][j])
@@ -71,5 +71,5 @@ while True:
     return grid, line,
 
 anim = animation.FuncAnimation(fig, animate, 300, interval=50)
-#plt.show()
-anim.save("localization_2d.gif", writer="imagemagick")"""
+plt.show()
+#anim.save("localization_2d.gif", writer="imagemagick")

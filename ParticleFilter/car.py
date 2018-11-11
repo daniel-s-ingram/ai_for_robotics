@@ -220,5 +220,5 @@ def init():
     return lines, particle_dots, sense_lines,
 
 anim = animation.FuncAnimation(fig, animate, 200, interval=50, init_func=init)
-#plt.show()
-anim.save("car.gif", writer="imagemagick")
+plt.show()
+#anim.save("car.gif", writer="imagemagick")

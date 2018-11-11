@@ -57,21 +57,20 @@ possible_motions = [[1, 0, 0, 0],
 motions = np.array([random.choice(possible_motions) for _ in range(500)])
 measurements = np.array([[[50, 50]] for _ in range(500)])
 for i in range(1, 500):
-    measurements[i, 0, 0] = measurements[i-1, 0, 0] + motions[i, 0]
-    measurements[i, 0, 1] = measurements[i-1, 0, 1] + motions[i, 1]
+    measurements[i, :] = measurements[i-1, :] + motions[i, :2]
 
 f = gaussian_2d(X, Y, x, P)
-grid = ax.imshow(f)
+grid = ax.imshow(f, cmap="GnBu")
 dot, = ax.plot(0, 0, 'r.')
 def animate(i):
     global x, P
     x, P = predict(x, motions[i].reshape(4, 1), P)
-    x, P = update(x, measurements[i, 0].reshape(1, 2), P)
+    x, P = update(x, measurements[i].reshape(1, 2), P)
     f = gaussian_2d(X, Y, x, P)
     grid.set_data(f)
     smallest = min(min(row) for row in f)
     largest = max(max(row) for row in f)
-    grid.set_clim(vmin=0, vmax=largest)
+    grid.set_clim(vmin=0, vmax=1)
     dot.set_data(measurements[i, 0, :2])
     return grid, dot,
 
@@ -83,5 +82,5 @@ def init():
     return grid, dot,
 
 anim = animation.FuncAnimation(fig, animate, 500, interval=50, init_func=init)
-#plt.show()
-anim.save("kalman_2d.gif", writer="imagemagick")
+plt.show()
+#anim.save("kalman_2d.gif", writer="imagemagick")

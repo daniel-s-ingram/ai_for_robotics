@@ -21,7 +21,7 @@ p = [1/n_cells for _ in range(n_cells)]
 #p[0] = 1
 
 world = [1 if random.random() > 0.8 else 0 for _ in range(n_cells)]
-
+#world = [0, 1, 1, 0, 0]
 colors = ["white", "black"]
 levels = [0, 1, 2]
 cmap, norm = from_levels_and_colors(levels, colors)
@@ -56,11 +56,14 @@ rects = prob_ax.bar(x, p)
 line, = world_ax.plot(0, 1, 'r.')
 def update(i):
     global p
-    p = sense(p, world[i])
+    p = sense(p, world[i%100])
+    print(p)
     p = move(p, 1)
+    print(p)
     for rect, h in zip(rects, p):
         rect.set_height(h)
     line.set_xdata((i+1)%n_cells)
+    input()
     return rects, line,
 
 def init():
