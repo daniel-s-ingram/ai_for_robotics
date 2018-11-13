@@ -189,7 +189,7 @@ lines[5][0].set_linewidth(5)
 lines[6][0].set_linewidth(5)
 lines[7][0].set_linewidth(5)
 sense_lines = [ax.plot([0, 0], [0, 0], 'b--', alpha=0.3) for _ in LANDMARKS]
-particle_dots = [ax.plot(0, 0, '.') for _ in range(N_PARTICLES)]
+particle_dots = [ax.plot(0, 0, '.', markersize=1) for _ in range(N_PARTICLES)]
 car = Car()
 car.set_noise(0, 0, 0)
 car.set_pose(0, 50, 0, 0)
