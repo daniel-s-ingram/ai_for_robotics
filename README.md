@@ -27,4 +27,4 @@ The only way to overcome this uncertainty is to use the known positions of landm
 ## Lesson 4
 ### A*
 
-![](https://github.com/daniel-s-ingram/ai_for_robotics/blob/master/Search/a_star.gif)
+![](https://github.com/daniel-s-ingram/ai_for_robotics/blob/master/Search/grid_astar.gif)
