@@ -1,14 +1,12 @@
 from __future__ import print_function, division
-from math import sqrt, pi, cos, sin, tan, exp, atan2
 import random
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from splipy import curve_factory
 
 M = 100        #Rows
 N = 100        #Columns
-OBSTACLE_PROBABILITY = 0.05
+OBSTACLE_PROBABILITY = 0.25
 GRID = np.int8(np.random.random((M, N)) > (1 - OBSTACLE_PROBABILITY))
 START_NODE = (5, 5)
 GOAL_NODE = (M-5, N-5)
@@ -82,14 +80,8 @@ def animate(_):
                         closed[x1, y1] = 1
                         action[x1, y1] = i
             current_route = get_current_route((x, y))
-            if len(current_route) > 3:
-                cubic_curve = curve_factory.cubic_curve(current_route)
-                curve = curve_factory.bezier(cubic_curve.controlpoints, quadratic=True)
-                x = cubic_curve.controlpoints[:, 1]
-                y = cubic_curve.controlpoints[:, 0]
-            else:
-                x = current_route[:, 1]
-                y = current_route[:, 0]
+            x = current_route[:, 1]
+            y = current_route[:, 0]
             route.set_data(x, y)
         return route,
 
