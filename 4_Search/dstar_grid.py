@@ -6,26 +6,20 @@ import matplotlib.animation as animation
 
 M = 50        #Rows
 N = 50        #Columns
-START_NODE = (0, 0)
 GOAL_NODE = (M-1, N-1)
 OBSTACLE_PROBABILITY = 0.15
-GRID = np.int8(np.random.random((M, N)) < (1 - OBSTACLE_PROBABILITY))
+GRID = np.int8(np.random.random((M, N)) > OBSTACLE_PROBABILITY)
 IMAGE = 255*np.dstack((GRID, GRID, GRID))
-IMAGE[START_NODE] = [255, 255, 0]
 IMAGE[GOAL_NODE] = [0, 255, 0]
 DELTAS = [[-1, 0],
           [0, -1],
           [1, 0],
           [0, 1]]
 
-x = START_NODE[0]
-y = START_NODE[1]
 cost = 1
 
 fig, ax = plt.subplots()
-print(fig.dpi)
 fig.set_size_inches(19.2, 9.43, True)
-print(fig.dpi)
 ax.imshow(IMAGE)
 kwargs = {"width" : 0.01,
           "head_width" : 0.4,
@@ -52,5 +46,5 @@ def animate(_):
                             ax.arrow(y, x, DELTAS[a][1], DELTAS[a][0], **kwargs)
 
 anim = animation.FuncAnimation(fig, animate, 100, interval=50)
-plt.show()
-#anim.save("dstar_grid.gif", writer="imagemagick")
+#plt.show()
+anim.save("dstar_grid.gif", writer="imagemagick")
