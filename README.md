@@ -30,3 +30,7 @@ The only way to overcome this uncertainty is to use the known positions of landm
 
 ### D*
 ![](https://github.com/daniel-s-ingram/ai_for_robotics/blob/master/4_Search/dstar_grid.gif)
+
+## Lesson 5
+### Path Smoothing
+![](https://github.com/daniel-s-ingram/ai_for_robotics/blob/master/5_PID/path_smoothing.gif)
