@@ -34,3 +34,6 @@ The only way to overcome this uncertainty is to use the known positions of landm
 ## Lesson 5
 ### Path Smoothing
 ![](https://github.com/daniel-s-ingram/ai_for_robotics/blob/master/5_PID/path_smoothing.gif)
+
+### P Controller
+![](https://github.com/daniel-s-ingram/ai_for_robotics/blob/master/5_PID/p_controller.gif)
