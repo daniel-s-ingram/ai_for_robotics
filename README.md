@@ -40,3 +40,7 @@ The only way to overcome this uncertainty is to use the known positions of landm
 
 ### PID Controller
 ![](https://github.com/daniel-s-ingram/ai_for_robotics/blob/master/5_PID/pid_controller.gif)
+
+## Lesson 6
+### SLAM
+![](https://github.com/daniel-s-ingram/ai_for_robotics/blob/master/6_SLAM/slam.gif)
